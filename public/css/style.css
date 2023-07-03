@@ -1,7 +1,32 @@
+/* RESETS */
 html, body {
     height: 100%;
 }
 
-body {
-    background-image: url(/images/hiking-bg.jpg);
+body.landing {
+    background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(/images/hiking-bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+button {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: 1px solid #ccc !important;
+}
+
+/* CUSTOM STYLES */
+.btn-border {
+    border: 2px solid #444;
+    background: none !important;
+}
+
+.btn-border:hover {
+    background: #aaa !important;
 }
