@@ -1,4 +1,4 @@
-const { getData, saveData } = require('../db');
+const {getData, saveData} = require('../db');
 const {v4} = require('uuid');
 
 class User {
@@ -17,9 +17,11 @@ class User {
             ...formData
         };
 
-        data.users.puth(user);
+        data.users.push(user);
 
         saveData(data);
+
+        return user;
     }
 }
 

@@ -7,7 +7,7 @@ function getData() {
 }
 
 function saveData(data) {
-    fs.writeFileSync(DB_PATH, JSON.stringify(data));
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
     console.log('Data saved successfully')
 }
 

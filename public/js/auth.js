@@ -1,0 +1,28 @@
+const form = document.querySelector('#auth-form');
+
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const isRegister = window.location.pathname.includes('register')
+    const usernameInput = document.querySelector('#username-input');
+    const passwordInput = document.querySelector('#password-input');
+    const url = isRegister ? '/register' : '/login';
+
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: usernameInput.value,
+            password: passwordInput.value
+        })
+    }).then(res => res.json())
+    .then(userObj => {
+        localStorage.setItem('adventure_user', JSON.stringify(userObj));
+        window.location = '/dashboard';
+    });
+}
+
+form.addEventListener('submit', handleSubmit);

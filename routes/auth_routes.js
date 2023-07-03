@@ -9,7 +9,8 @@ router.post('/register', (clientReq, serverRes) => {
         serverRes.send({
             id: user.id,
             username: user.username
-        })
+        });
+        
     } catch(err) {
         if (err.message === 'user-exists') {
             serverRes.redirect('/login');
