@@ -2,7 +2,8 @@ const express = require('express');
 
 const app = express();
 const PORT = process.env.PORT || 3333;
-const viewRoutes = require('./routes/view_routes')
+const view_routes = require('./routes/view_routes')
+const auth_routes = require('./routes/auth_routes')
 
 // Middleware
 app.use(express.static('public'))
@@ -10,8 +11,9 @@ app.use(express.json());
 
 // Routes
 app.use('/', [
-    viewRoutes
-])
+    view_routes,
+    auth_routes
+]);
 
 // Start the server
 app.listen(PORT, () => console.log('Server started on port %s', PORT))

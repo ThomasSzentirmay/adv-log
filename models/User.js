@@ -7,10 +7,10 @@ class User {
         const userExists = data.users.find(u => u.username === formData.username);
 
         // Ensure form inputs have been filled out
-        if (!formData.username || !formData.password) throw new Error('You must enter a username and password.');
+        if (!formData.username || !formData.password) throw new Error('empty-creds');
 
         // Check if user already exists in the db
-        if (userExists) throw new Error('Username already exists.');
+        if (userExists) throw new Error('user-exists');
 
         const user = {
             id: v4(),
