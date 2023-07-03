@@ -30,3 +30,7 @@ input:focus {
 .btn-border:hover {
     background: #aaa !important;
 }
+
+.dashboard-nav a:first-child {
+    margin-right: 20px !important;
+}
