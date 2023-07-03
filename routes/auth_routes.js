@@ -22,4 +22,27 @@ router.post('/register', (clientReq, serverRes) => {
     }
 });
 
+// Login User
+router.post('/login', (clientReq, serverRes) => {
+    try{
+        const user = User.getUserByUsername(clientReq.body.username);
+
+        if (clientReq.body.password !== user.password) throw new Error('password');
+
+        serverRes.send({
+            id: user.id,
+            username: user.username
+        });
+        
+    } catch(err) {
+        if (err.message === 'not_found') {
+            serverRes.redirect('/register');
+        }
+
+        if (err.message === 'password') {
+            serverRes.redirect('/login');
+        }
+    }
+});
+
 module.exports = router;

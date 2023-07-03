@@ -23,6 +23,15 @@ class User {
 
         return user;
     }
+
+    static getUserByUsername(username) {
+        const {users} = getData();
+        const user = users.find(u => u.username === username);
+
+        if (!user) throw new Error('not_found');
+
+        return user;
+    }
 }
 
 module.exports = User;

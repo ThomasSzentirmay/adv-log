@@ -25,4 +25,12 @@ function handleSubmit(e) {
     });
 }
 
+function isAuthenticated() {
+    const user = localStorage.getItem('adventure_user');
+
+    if (user) window.location = '/dashboard';
+}
+
+
+isAuthenticated();
 form.addEventListener('submit', handleSubmit);
