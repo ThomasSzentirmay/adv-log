@@ -13,9 +13,9 @@ app.use(express.json());
 // Routes
 app.use('/', [
     view_routes,
-    auth_routes,
-    adventure_routes
+    auth_routes
 ]);
+app.use('/api', adventure_routes);
 
 // Start the server
 app.listen(PORT, () => console.log('Server started on port %s', PORT))

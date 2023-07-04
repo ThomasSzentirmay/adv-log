@@ -33,6 +33,18 @@ class Adventure {
 
         return output;
     }
+
+    static getAll() {
+        const data = getData();
+        const sorted = data.adventures.sort((a, b) => b.createdOn - a.createdOn);
+        const adventures = sorted.map(a => ({
+            ...a,
+            username: data.users.find(u => u.id === a.user_id).username,
+            createdOn: dayjs.unix(a.createdOn).format('M/DD/YYYY')
+        }));
+
+        return adventures;
+    }
 }
 
 module.exports = Adventure;

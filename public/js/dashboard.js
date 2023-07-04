@@ -12,7 +12,7 @@ function handleSubmit(e) {
     const locationInput = document.querySelector('#location-input');
     const user = getUser();
 
-    fetch('/adventure', {
+    fetch('/api/adventure', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ function getAdventures() {
     const user = getUser();
     const output = document.querySelector('.adventures');
 
-    fetch(`/adevntures/${user.id}`)
+    fetch(`/api/adventures/${user.id}`)
         .then(res => res.json())
         .then(adventures => {
 

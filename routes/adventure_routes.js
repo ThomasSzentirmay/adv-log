@@ -21,4 +21,11 @@ router.get('/adventures:user_id', (clientReq, serverRes) => {
     serverRes.send(adventures);
 });
 
+// Create All Adventures
+router.get('/adventures', (clientReq, serverRes) => {
+    const adventures = Adventure.getAll();
+
+    serverRes.send(adventures);
+});
+
 module.exports = router;
