@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 const view_routes = require('./routes/view_routes')
 const auth_routes = require('./routes/auth_routes')
+const adventure_routes = require('./routes/adeventure_routes')
 
 // Middleware
 app.use(express.static('public'))
@@ -12,7 +13,8 @@ app.use(express.json());
 // Routes
 app.use('/', [
     view_routes,
-    auth_routes
+    auth_routes,
+    adventure_routes
 ]);
 
 // Start the server
